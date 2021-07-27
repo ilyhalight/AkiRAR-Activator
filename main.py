@@ -19,13 +19,13 @@ def activate(dir):
         while True:
             print('Вероятно WinRAR уже активирован с помощью rarreg.key. Вы хотите перезаписать файл? [y/n]')
             vote = input('>>> ')
-            if vote == 'y':
+            if vote.lower() == 'y':
                 try:
                     os.remove(file_path)
                 except PermissionError:
                     print('Перезапустите программу с правами администратора')
                 break
-            elif vote == 'n':
+            elif vote.lower() == 'n':
                 print('Вы отказались от перезаписи файла rarreg.key')
                 break
             else:
@@ -33,7 +33,7 @@ def activate(dir):
     else:
         pass
 
-    if vote == 'n':
+    if vote.lower() == 'n':
         print(file_path, 'уже существует')
     else:
         try:
@@ -59,14 +59,14 @@ def deactivate(dir):
         while True:
             print('Вы уверены, что хотите деактивировать WinRAR? [y/n]')
             vote = input('>>> ')
-            if vote == 'y':
+            if vote.lower() == 'y':
                 try:
                     os.remove(file_path)
                     print('WinRAR был успешно деактивирован')
                 except PermissionError:
                     print('Перезапустите программу с правами администратора')
                 break
-            elif vote == 'n':
+            elif vote.lower() == 'n':
                 print('Вы отказались от деактивации WinRAR')
                 break
             else:
